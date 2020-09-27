@@ -1,0 +1,19 @@
+{% extends "blog/base.html" %}
+{% block content %}
+  {% for itr in key %}
+  <article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ itr.author.profile.image.url }}">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="#">{{ itr.author }}</a>
+      <small class="text-muted">{{ itr.date_posted|date:"F d,Y" }}</small>
+    </div>
+    <h2><a class="article-title" href="{% url 'post-detail' itr.id %}">{{ itr.title }}</a></h2>
+    <p class="article-content">{{ itr.content }}</p>
+  </div>
+</article>
+  {% endfor %}
+{% endblock content %}
+
+
+
